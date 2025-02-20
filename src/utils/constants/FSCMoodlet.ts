@@ -40,9 +40,9 @@ export const fscMoodletList: FSCMoodlet[] = [
   {
     title: "Letter version",
     items: [
-      { id: "1", label: "letter", status: "notRequired" },
-      { id: "2", label: "letter", status: "required" },
-      { id: "3", label: "letter", status: "current" },
+      { id: "1", label: "F", status: "notRequired" },
+      { id: "2", label: "S", status: "required" },
+      { id: "3", label: "C", status: "current" },
     ],
   },
   {
