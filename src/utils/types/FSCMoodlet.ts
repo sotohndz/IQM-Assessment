@@ -4,8 +4,13 @@ export type FSCMoodletStatus =
   | "current"
   | "completed";
 
-export interface ColorChipItem {
+export interface FSCMoodletItem {
   id: string;
   label: string;
   status: FSCMoodletStatus;
+}
+
+export interface FSCMoodlet {
+  title: string;
+  items: FSCMoodletItem[];
 }

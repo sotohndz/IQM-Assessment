@@ -1,4 +1,4 @@
-import { ColorChipItem } from "../types";
+import { FSCMoodlet } from "../types";
 
 export const NOT_REQUIRED_STATUS_BACKGROUND_COLOR = "#E2DEED";
 export const NOT_REQUIRED_STATUS_BORDER_COLOR = "#998DBF";
@@ -36,15 +36,21 @@ export const chipColors = {
   },
 };
 
-export const colorChipList: ColorChipItem[][] = [
-  [
-    { id: "1", label: "F", status: "notRequired" },
-    { id: "2", label: "S", status: "required" },
-    { id: "3", label: "C", status: "current" },
-  ],
-  [
-    { id: "4", label: "Fuelling", status: "notRequired" },
-    { id: "5", label: "Servicing", status: "required" },
-    { id: "6", label: "Cleaning", status: "current" },
-  ],
+export const colorChipList: FSCMoodlet[] = [
+  {
+    title: "Letter version",
+    items: [
+      { id: "1", label: "F", status: "notRequired" },
+      { id: "2", label: "S", status: "required" },
+      { id: "3", label: "C", status: "current" },
+    ],
+  },
+  {
+    title: "Word version",
+    items: [
+      { id: "4", label: "Fuelling", status: "notRequired" },
+      { id: "5", label: "Servicing", status: "required" },
+      { id: "6", label: "Cleaning", status: "current" },
+    ],
+  },
 ];
