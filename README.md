@@ -1,50 +1,112 @@
-# React + TypeScript + Vite
+# Project Documentation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project uses a variety of components for user interaction, including moodlets, dropdowns, and style variants. The system is built on Node 22, Vite 6.11, React 19.0.0, and Tailwind CSS v4.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Components
 
-## Expanding the ESLint configuration
+### Moodlet
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The moodlet component is used to show user-summarized information and allow interaction. A moodlet can contain a single letter code, an icon, an ellipsis, a multi-letter code, or a multi-letter code with an icon.
 
-- Configure the top-level `parserOptions` property like this:
+#### Content Options
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Letter
+- Icon
+- Ellipsis
+- Word
+- Icon Left
+- Icon Right
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+#### Style Variants
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Primary | Active**
+- **Inactive**
+- **Secondary | Planning**
+- **Blue | Released**
+- **Green | OK**
+- **Red | Stop/Block**
+- **Yellow | Warning**
+- **Placeholder**
+- **Disabled**
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+#### Interaction
+
+- Read only moodlets
+- Interaction possible (default and hover styles)
+- Button styles for interaction
+
+### FSC Logic
+
+The FSC (Fuelling, Servicing, Cleaning) component indicates the state of something in the system, following this logic:
+
+- **Right-click** to change from "required" to "not required."
+- **Left-click** cycles between the states of "current" and "completed."
+
+States:
+
+- **Not Required**
+- **Required**
+- **Current**
+- **Completed**
+
+Variants for display:
+
+- **Letter Version**
+- **Word Version** (Fuelling, Servicing, Cleaning)
+
+### Dropdown
+
+The dropdown component is used for selecting an option from structured data.
+
+#### Dropdown Option Styles
+
+- **Desktop:**
+  - Default
+  - Hover
+  - Selected
+  - Disabled
+- **Mobile:**
+  - Default
+  - Hover
+  - Selected
+  - Disabled
+
+#### Dropdown Menu
+
+- **Desktop & Mobile:**
+  - Text options
+  - Moodlet options
+
+## Installation
+
+### Prerequisites
+
+- Node.js v22
+- Vite v6.11
+- React v19.0.0
+- Tailwind CSS v4
+
+### Setup Instructions
+
+1. Clone this repository:
+   ```
+   git clone git@github.com:sotohndz/IQM-Assessment.git
+   ```
+2. Navigate to the project directory:
+   ```
+   cd iqm-assessment
+   ```
+3. Install the required dependencies:
+   ```
+   npm install
+   ```
+4. Start the development server:
+   ```
+   npm run dev
+   ```
+
+## License
+
+This project is licensed under the MIT License.
