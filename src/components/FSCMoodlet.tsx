@@ -1,11 +1,7 @@
 import { useState } from "react";
+
+import Moodlet from "./Moodlet";
 import { FSCMoodletStatus } from "../utils/types";
-import {
-  chipColors,
-  REQUIRED_STATUS_BACKGROUND_COLOR,
-  REQUIRED_STATUS_BORDER_COLOR,
-  REQUIRED_STATUS_TEXT_COLOR,
-} from "../utils/constants";
 
 interface FSCMoodletProps {
   label: string;
@@ -17,19 +13,6 @@ export default function FSCMoodlet({
   status: initialStatus,
 }: FSCMoodletProps) {
   const [status, setStatus] = useState<FSCMoodletStatus>(initialStatus);
-
-  const bgColor = `bg-[${
-    chipColors[status].background || REQUIRED_STATUS_BACKGROUND_COLOR
-  }]`;
-  const borderColor = `border-[${
-    chipColors[status].border || REQUIRED_STATUS_BORDER_COLOR
-  }]`;
-  const textColor = `text-[${
-    chipColors[status].text || REQUIRED_STATUS_TEXT_COLOR
-  }]`;
-  const className = `font-bold ${textColor} ${bgColor} cursor-pointer border ${borderColor} uppercase rounded-full px-2 h-[26px]`;
-
-  console.log("#bgColor", bgColor);
 
   const handleLeftClick = () => {
     if (status === "required" || status === "completed") {
@@ -47,13 +30,24 @@ export default function FSCMoodlet({
     }
   };
 
+  const renderMoodlet = () => {
+    switch (status) {
+      case "notRequired":
+        return (
+          <Moodlet variant="disabled" option="letter" label={label} readonly />
+        );
+      case "required":
+        return <Moodlet variant="inactive" option="letter" label={label} />;
+      case "current":
+        return <Moodlet variant="red" option="letter" label={label} />;
+      case "completed":
+        return <Moodlet variant="green" option="letter" label={label} />;
+    }
+  };
+
   return (
-    <div
-      className={className}
-      onClick={handleLeftClick}
-      onContextMenu={handleRightClick}
-    >
-      {label}
+    <div onClick={handleLeftClick} onContextMenu={handleRightClick}>
+      {renderMoodlet()}
     </div>
   );
 }
