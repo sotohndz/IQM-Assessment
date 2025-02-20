@@ -1,7 +1,13 @@
-import "./App.css";
+import React from "react";
+
+import { FSCSection } from "./sections";
 
 function App() {
-  return <h1 className="text-3xl font-bold underline">Hellow Word!</h1>;
+  return (
+    <React.Fragment>
+      <FSCSection />
+    </React.Fragment>
+  );
 }
 
 export default App;
